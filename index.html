@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة اركان التعليمية - المحتوى التعليمي</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="https://img.icons8.com/color/48/000000/graduation-cap.png">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Hover.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
+    <!-- Simple Line Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <style>
+        /* Import IBM Sans Arabic Font */
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Sans+Arabic:wght@200;300;400;500;600;700;800;900&display=swap');
+
+        :root {
+            --primary-color: #5c3b23;
+            --secondary-color: #a67c52;
+            --accent-color: #a67c52;
+            --light-bg: #ffffff;
+            --dark-bg: #2d1a0b;
+            --dark-card-bg: #3e2612;
+            --dark-hover: #6e4b2a;
+            --light-text: #3e2612;
+            --dark-text: #fff8f0;
+            --dark-text-secondary: #e2cdb0;
+            --gradient-1: linear-gradient(135deg, #5c3b23 0%, #a67c52 100%);
+            --gradient-2: linear-gradient(45deg, #a67c52 0%, #5c3b23 100%);
+            --card-shadow: 0 4px 15px rgba(92, 59, 35, 0.08);
+            --hover-shadow: 0 8px 25px rgba(92, 59, 35, 0.15);
+            --transition-base: all 0.3s ease;
+            --border-radius-lg: 15px;
+            --border-radius-sm: 10px;
+            --spacing-base: 1rem;
+            --spacing-lg: 2rem;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans Arabic', 'Cairo', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--light-text);
+            margin-top: 0;
+            line-height: 1.6;
+        }
+
+        /* Responsive Typography */
+        @media (max-width: 768px) {
+            h1 { font-size: calc(1.8rem + 1vw); }
+            h2 { font-size: calc(1.5rem + 0.8vw); }
+            h3 { font-size: calc(1.3rem + 0.6vw); }
+            .course-title { font-size: 1.1rem; }
+        }
+
+        /* Course Categories Navigation */
+        .category-btn {
+            padding: 0.6rem 1.2rem;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            background: white;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: var(--gradient-1);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(92, 59, 35, 0.2);
+        }
+
+        .category-btn i {
+            margin-left: 0.5rem;
+        }
+
+        /* Section Headers */
+        .section-header {
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(166, 124, 82, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            color: var(--primary-color);
+        }
+
+        .section-title i {
+            color: var(--accent-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        /* Enhanced Card Styles with Modern Effects */
+        /* جعل البطاقة والصورة مربعة تماماً */
+.course-card {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 1 / 1;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fff8f0 60%, #f3e7d9 100%);
+  box-shadow: 0 8px 32px rgba(92, 59, 35, 0.10);
+  border: 1px solid #f3e7d9;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.course-card .position-relative {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 800px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3e7d9;
+}
+.course-card img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 800px;
+  max-height: 800px;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+@media (max-width: 992px) {
+  .course-card, .course-card .position-relative {
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+  .course-card img {
+    max-width: 100%;
+    max-height: 100vw;
+    aspect-ratio: 1 / 1;
+  }
+}
+@media (max-width: 576px) {
+  .course-card, .course-card .position-relative {
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+  .course-card img {
+    max-width: 100%;
+    max-height: 100vw;
+    aspect-ratio: 1 / 1;
+  }
+}
+.course-info {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255,255,255,0.97);
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 2px 8px rgba(166, 124, 82, 0.04);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  min-height: 200px;
+  transition: background 0.3s;
+  margin-top: -5px;
+}
+@media (max-width: 992px) {
+  .course-info {
+    padding: 1.2rem 1rem 1rem 1rem;
+    min-height: 120px;
+  }
+}
+@media (max-width: 576px) {
+  .course-info {
+    padding: 0.7rem 0.5rem 0.5rem 0.5rem;
+    min-height: 80px;
+  }
+}
+
+/* Enhanced course card animations */
+.course-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.course-card:nth-child(1) { animation-delay: 0.1s; }
+.course-card:nth-child(2) { animation-delay: 0.2s; }
+.course-card:nth-child(3) { animation-delay: 0.3s; }
+.course-card:nth-child(4) { animation-delay: 0.4s; }
+.course-card:nth-child(5) { animation-delay: 0.5s; }
+.course-card:nth-child(6) { animation-delay: 0.6s; }
+.course-card:nth-child(7) { animation-delay: 0.7s; }
+.course-card:nth-child(8) { animation-delay: 0.8s; }
+.course-card:nth-child(9) { animation-delay: 0.9s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Improved badge styling */
+.badge {
+    position: relative;
+    overflow: hidden;
+}
+
+.badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.course-card:hover .badge::before {
+    left: 100%;
+}
+
+.course-card:hover::before {
+    opacity: 0.05;
+    transform: scale(1);
+}
+
+/* Course Level Badges */
+.badge-level {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    margin-right: 0.3rem;
+}
+
+.badge-level.bg-primary {
+    background-color: rgba(92, 59, 35, 0.1) !important;
+    color: var(--primary-color) !important;
+}
+
+.badge-level.bg-secondary {
+    background-color: rgba(108, 117, 125, 0.1) !important;
+    color: #6c757d !important;
+}
+
+.badge-level.bg-success {
+    background-color: rgba(40, 167, 69, 0.1) !important;
+    color: #28a745 !important;
+}
+
+.badge-level.bg-info {
+    background-color: rgba(23, 162, 184, 0.1) !important;
+    color: #17a2b8 !important;
+}
+
+.course-card img {
+    max-width: 100%;
+    object-fit: cover;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+    position: relative;
+    z-index: 1;
+    filter: brightness(0.95);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(92, 59, 35, 0.10);
+}
+
+@media (max-width: 992px) {
+    .course-card img {
+    }
+}
+
+@media (max-width: 576px) {
+    .course-card img {
+    }
+}
+
+/* تصميم ديناميكي للبطاقات */
+.course-card {
+            border-radius: 18px;
+            background: linear-gradient(135deg, #fff8f0 60%, #f3e7d9 100%);
+            box-shadow: 0 8px 32px rgba(92, 59, 35, 0.10);
+            border: 1px solid #f3e7d9;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s;
+            position: relative;
+        }
+
+        .course-card:hover {
+            transform: translateY(-12px) scale(1.03) rotate(-1deg);
+            box-shadow: 0 16px 48px rgba(92, 59, 35, 0.18);
+            background: linear-gradient(135deg, #fff 60%, #e9d7c3 100%);
+        }
+
+        .course-info {
+            background: rgba(255,255,255,0.95);
+            border-radius: 0 0 18px 18px;
+            box-shadow: 0 2px 8px rgba(166, 124, 82, 0.04);
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            min-height: 260px;
+            transition: background 0.3s;
+        }
+
+        .course-card:hover .course-info {
+            background: rgba(255,255,255,1);
+        }
+
+        .course-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #5c3b23;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .course-card:hover .course-title {
+            color: #a67c52;
+        }
+
+        .enroll-btn {
+            border-radius: 30px;
+            font-size: 1.1rem;
+            padding: 0.7rem 2rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #a67c52 0%, #5c3b23 100%);
+            color: #fff !important;
+            box-shadow: 0 2px 8px rgba(166, 124, 82, 0.15);
+            transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+        }
+
+        .enroll-btn:hover {
+            background: linear-gradient(90deg, #5c3b23 0%, #a67c52 100%);
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(166, 124, 82, 0.22);
+        }
+
+
+        /* Course Grid Styling */
+        .course-grid {
+            padding: 2rem 0;
+        }
+
+        .course-info {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 2;
+            background: white;
+            transition: all 0.4s ease;
+        }
+
+        .course-card:hover .course-info {
+            transform: translateY(-5px);
+        }
+
+        .course-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0.5rem 0 0.75rem;
+            color: var(--primary-color);
+            line-height: 1.4;
+            transition: all 0.3s ease;
+            position: relative;
+            display: block;
+        }
+
+        .course-instructor {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .course-instructor i {
+            margin-left: 0.3rem;
+            color: var(--accent-color);
+        }
+
+        .course-card:hover .course-title {
+            color: var(--accent-color);
+        }
+
+        .course-description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            height: 3.2rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1.5rem 0 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .course-card:hover .course-meta {
+            border-top-color: rgba(166, 124, 82, 0.2);
+        }
+
+        .course-meta-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #666;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.03);
+            padding: 0.3rem 0.6rem;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+
+        .course-card:hover .course-meta-item {
+            color: var(--primary-color);
+            background: rgba(166, 124, 82, 0.1);
+        }
+
+        .course-meta-item i {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+        }
+
+        .course-rating {
+            color: #ffc107;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .course-rating .stars {
+            display: inline-flex;
+            position: relative;
+        }
+
+        .course-rating .stars::before {
+            content: '★★★★★';
+            color: #e2e8f0;
+            letter-spacing: 2px;
+        }
+
+        .course-rating .stars::after {
+            content: '★★★★★';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #ffc107;
+            overflow: hidden;
+            white-space: nowrap;
+            width: var(--rating-width, 100%);
+        }
+
+        .course-rating span {
+            color: #666;
+            margin-right: 5px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .course-card:hover .course-rating span {
+            color: var(--primary-color);
+        }
+
+        .course-price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .current-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .original-price {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .badge {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            color: #4b5563;
+            border: 1px solid #e5e7eb;
+        }
+
+        .course-card:hover .badge {
+            background: var(--gradient-1);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(92, 59, 35, 0.1), 0 2px 4px -1px rgba(92, 59, 35, 0.06);
+        }
+
+        .enroll-btn {
+            background: var(--gradient-1);
+            border: none;
+            padding: 0.6rem 1.4rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white !important;
+            text-decoration: none !important;
+            box-shadow: 0 4px 15px rgba(166, 124, 82, 0.3);
+        }
+
+        .enroll-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--gradient-2);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+            border-radius: 50px;
+            opacity: 0.9;
+        }
+
+        .enroll-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(166, 124, 82, 0.4);
+        }
+
+        .enroll-btn:hover::before {
+            width: 100%;
+            opacity: 1;
+        }
+
+        .enroll-btn i {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.9rem;
+        }
+
+        .enroll-btn:hover i {
+            transform: translateX(4px) scale(1.1);
+        }
+
+        /* Progress Bar */
+        .progress {
+            height: 6px !important;
+            border-radius: 3px;
+            background-color: #f0f0f0;
+            overflow: visible;
+            margin: 1.2rem 0 1.5rem;
+        }
+
+        .progress-bar {
+            background: var(--gradient-1) !important;
+            border-radius: 3px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .progress-bar::after {
+            content: attr(aria-valuenow)'%';
+            position: absolute;
+            top: -25px;
+            right: 0;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            background: white;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* تنسيق العناوين */
+        section h2 {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(45deg, #2937f0, #9f1ae2);
+            border-radius: 2px;
+        }
+
+        /* تنسيق الأقسام */
+        .course-grid {
+            padding: 5rem 0;
+        }
+
+        .course-grid:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* تنسيق قسم الفلترة */
+        .filters {
+            padding: 2rem 0;
+            background: var(--light-bg);
+            margin-bottom: 1rem;
+        }
+
+        .search-bar {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--border-radius-lg);
+            font-size: 1rem;
+            transition: var(--transition-base);
+            background-color: white;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 1.25rem;
+        }
+
+        /* تنسيق العناوين */
+        section h2 {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(45deg, #2937f0, #9f1ae2);
+            border-radius: 2px;
+        }
+
+        /* تنسيق الفوتر */
+        footer {
+            background: var(--dark-bg) !important;
+        }
+
+        footer h4, footer h5 {
+            color: var(--dark-text);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        footer h4::after, footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .text-light-gray {
+            color: var(--dark-text-secondary) !important;
+        }
+
+        .footer-links a {
+            transition: var(--transition-base);
+            position: relative;
+            padding-right: 15px;
+        }
+
+        .footer-links a::before {
+            content: '\f054';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            opacity: 0;
+            transition: var(--transition-base);
+        }
+
+        .footer-links a:hover {
+            padding-right: 20px;
+            color: var(--primary-color) !important;
+        }
+
+        .footer-links a:hover::before {
+            opacity: 1;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: var(--transition-base);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--dark-text);
+            padding: 0.8rem 1.2rem;
+            border-radius: var(--border-radius-sm);
+        }
+
+        .newsletter-form .form-control::placeholder {
+            color: var(--dark-text-secondary);
+        }
+
+        .newsletter-form .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: none;
+        }
+
+        .newsletter-form .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius-sm);
+            background: var(--gradient-1);
+            border: none;
+        }
+
+        .newsletter-form .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Enhanced Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+
+            .course-card {
+                margin-bottom: 2rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                max-width: 720px;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            body {
+                margin-top: 0;
+                font-size: 0.9rem;
+            }
+
+            .category-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .course-card {
+                margin-bottom: 1.5rem;
+            }
+
+            .course-card img {
+            }
+
+            .course-title {
+                font-size: 1.1rem;
+                line-height: 1.3;
+            }
+
+            .course-description {
+                font-size: 0.9rem;
+                height: 2.7rem;
+                -webkit-line-clamp: 2;
+            }
+
+            .course-meta {
+                flex-direction: column;
+                gap: 0.8rem;
+                align-items: flex-start !important;
+            }
+
+            .course-meta-item {
+                font-size: 0.8rem;
+                padding: 0.25rem 0.5rem;
+            }
+
+            .current-price {
+                font-size: 1.1rem;
+            }
+
+            .enroll-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .course-grid {
+                padding: 3rem 0;
+            }
+
+            .py-5 {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+
+            .py-4 {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                max-width: 540px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            body {
+                margin-top: 0;
+                font-size: 0.85rem;
+            }
+
+            .category-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .course-card img {
+            }
+
+            .course-title {
+                font-size: 1rem;
+            }
+
+            .course-description {
+                font-size: 0.85rem;
+                height: 2.4rem;
+            }
+
+            .course-meta-item {
+                font-size: 0.75rem;
+            }
+
+            .current-price {
+                font-size: 1rem;
+            }
+
+            .enroll-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 1.1rem;
+            }
+
+            .badge {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.5rem;
+            }
+
+            .course-level {
+                flex-direction: column;
+                gap: 0.3rem;
+                align-items: flex-start;
+            }
+
+            .course-level .badge-level {
+                font-size: 0.65rem;
+                padding: 0.2rem 0.4rem;
+            }
+
+            .d-flex.justify-content-between.align-items-center {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch !important;
+            }
+
+            .course-price {
+                text-align: center;
+            }
+
+            .footer-links {
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+            .course-card {
+                border-radius: 8px;
+            }
+
+            .course-info {
+                padding: 1rem;
+            }
+
+            .course-grid {
+                padding: 2rem 0;
+            }
+
+            .py-5 {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
+        }
+
+        /* Touch-friendly interactions for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .course-card:hover {
+                transform: none;
+            }
+
+            .category-btn:hover {
+                transform: none;
+            }
+
+            .enroll-btn:hover {
+                transform: none;
+            }
+
+            .btn-primary:hover {
+                transform: none;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .course-card {
+                border: 2px solid var(--primary-color);
+            }
+
+            .enroll-btn {
+                border: 2px solid white;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .course-card,
+            .category-btn,
+            .enroll-btn,
+            .btn-primary {
+                animation: none;
+                transition: none;
+            }
+
+            .course-card:hover {
+                transform: none;
+            }
+        }
+
+        /* Enhanced Navbar styles */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 8px 32px rgba(92, 59, 35, 0.1);
+            border-bottom: 1px solid rgba(166, 124, 82, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #5c3b23;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: translateY(-2px);
+        }
+
+        .brand-icon {
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover .brand-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 20px rgba(92, 59, 35, 0.3);
+        }
+
+        .navbar-brand i {
+            font-size: 1.8rem;
+            margin-right: 0.5rem;
+            color: #a67c52;
+        }
+
+        .navbar-toggler {
+            border: none !important;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler:hover {
+            transform: scale(1.05);
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.2rem rgba(166, 124, 82, 0.25);
+        }
+
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #a67c52 !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link:hover .nav-indicator {
+            width: 100%;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(166, 124, 82, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        /* Mobile navbar improvements */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                border-radius: 12px;
+                margin-top: 1rem;
+                padding: 1rem;
+                box-shadow: 0 8px 32px rgba(92, 59, 35, 0.15);
+                border: 1px solid rgba(166, 124, 82, 0.1);
+            }
+
+            .nav-item {
+                margin: 0.5rem 0;
+            }
+
+            .nav-link {
+                padding: 0.75rem 1rem;
+                border-radius: 8px;
+            }
+
+            .nav-link:hover {
+                background: rgba(166, 124, 82, 0.1);
+                transform: translateX(5px);
+            }
+        }
+
+        /* Enhanced Footer styles */
+        footer {
+            background: linear-gradient(135deg, #2d1a0b 0%, #1a0f08 100%);
+            color: #fff8f0;
+            padding: 3rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-brand-icon {
+            transition: all 0.3s ease;
+        }
+
+        .footer-brand:hover .footer-brand-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 30px rgba(166, 124, 82, 0.4);
+        }
+
+        .social-link {
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: #a67c52 !important;
+            color: white !important;
+            box-shadow: 0 8px 25px rgba(166, 124, 82, 0.3);
+        }
+
+        .footer-link {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-link:hover {
+            color: #a67c52 !important;
+            transform: translateX(-5px);
+        }
+
+        .footer-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(166, 124, 82, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .footer-link:hover::before {
+            left: 100%;
+        }
+
+        .contact-icon {
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover .contact-icon,
+        .social-link:hover .contact-icon {
+            transform: scale(1.1);
+            background: rgba(166, 124, 82, 0.4) !important;
+        }
+
+        .newsletter-form .form-control {
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form .form-control:focus {
+            background: rgba(255, 255, 255, 0.15) !important;
+            border-color: #a67c52 !important;
+            box-shadow: 0 0 0 0.2rem rgba(166, 124, 82, 0.25) !important;
+        }
+
+        .newsletter-form .btn {
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form .btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(166, 124, 82, 0.3);
+        }
+
+        /* Footer responsive adjustments */
+        @media (max-width: 1200px) {
+            footer .col-lg-4 {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            footer {
+                padding: 2rem 0 1.5rem;
+            }
+
+            .footer-brand {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                text-align: center;
+                padding: 2rem 0 1rem;
+            }
+
+            footer .row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            footer .col-lg-2,
+            footer .col-lg-3,
+            footer .col-md-6 {
+                margin-bottom: 2rem;
+            }
+
+            .contact-info .d-flex {
+                justify-content: center;
+                text-align: right;
+            }
+
+            .newsletter-form .input-group {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            footer {
+                padding: 1.5rem 0 1rem;
+            }
+
+            .footer-brand h5 {
+                font-size: 1.3rem;
+            }
+
+            .social-links {
+                gap: 2rem;
+            }
+
+            .social-link {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-lg py-3 mb-4" style="backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.95) !important; border-bottom: 1px solid rgba(166, 124, 82, 0.1);">
+      <div class="container">
+        <a class="navbar-brand fw-bold fs-2 text-primary d-flex align-items-center" href="#" style="font-family: 'Cairo', 'IBM Plex Sans Arabic', sans-serif; letter-spacing: 1px; transition: all 0.3s ease;">
+          <div class="brand-icon me-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, #5c3b23, #a67c52); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(92, 59, 35, 0.2);">
+            <i class="fas fa-graduation-cap text-white fs-4"></i>
+          </div>
+          <div>
+            <div class="brand-title" style="font-size: 1.4rem; font-weight: 800; color: #5c3b23; line-height: 1.2;">مدرسة النور</div>
+            <div class="brand-subtitle" style="font-size: 0.8rem; color: #a67c52; font-weight: 600;">التعليمية</div>
+          </div>
+        </a>
+
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background: linear-gradient(135deg, #5c3b23, #a67c52); border-radius: 8px; padding: 8px 12px;">
+          <span class="navbar-toggler-icon" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27white%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27m4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e');"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item mx-2">
+              <a class="nav-link fw-semibold px-3 py-2 rounded-pill position-relative" href="#home" style="color: #5c3b23; transition: all 0.3s ease; font-size: 1rem;">
+                <i class="fas fa-home me-2"></i>الرئيسية
+                <span class="nav-indicator" style="position: absolute; bottom: 0; left: 50%; width: 0; height: 3px; background: linear-gradient(90deg, #5c3b23, #a67c52); transition: all 0.3s ease; transform: translateX(-50%);"></span>
+              </a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link fw-semibold px-3 py-2 rounded-pill position-relative" href="#courses" style="color: #5c3b23; transition: all 0.3s ease; font-size: 1rem;">
+                <i class="fas fa-book me-2"></i>الدورات
+                <span class="nav-indicator" style="position: absolute; bottom: 0; left: 50%; width: 0; height: 3px; background: linear-gradient(90deg, #5c3b23, #a67c52); transition: all 0.3s ease; transform: translateX(-50%);"></span>
+              </a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link fw-semibold px-3 py-2 rounded-pill position-relative" href="#about" style="color: #5c3b23; transition: all 0.3s ease; font-size: 1rem;">
+                <i class="fas fa-info-circle me-2"></i>من نحن
+                <span class="nav-indicator" style="position: absolute; bottom: 0; left: 50%; width: 0; height: 3px; background: linear-gradient(90deg, #5c3b23, #a67c52); transition: all 0.3s ease; transform: translateX(-50%);"></span>
+              </a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link fw-semibold px-3 py-2 rounded-pill position-relative" href="#contact" style="color: #5c3b23; transition: all 0.3s ease; font-size: 1rem;">
+                <i class="fas fa-phone me-2"></i>اتصل بنا
+                <span class="nav-indicator" style="position: absolute; bottom: 0; left: 50%; width: 0; height: 3px; background: linear-gradient(90deg, #5c3b23, #a67c52); transition: all 0.3s ease; transform: translateX(-50%);"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Courses Categories Navigation -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-4" data-aos="fade-up">تصفح دوراتنا التعليمية</h2>
+                <div class="d-flex flex-wrap justify-content-center gap-3" id="courseCategories">
+                    <button class="category-btn" data-category="private">
+                        <i class="fas fa-user-graduate me-2"></i> دروس خصوصية
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Private Lessons Section -->
+    <section id="private-lessons" class="py-5 category-section" data-category="private">
+        <div class="container">
+            <div class="section-header d-flex justify-content-between align-items-center mb-4">
+                <h2 class="section-title mb-0">
+                    <i class="fas fa-user-graduate me-2"></i> دروس خصوصية
+                </h2>
+            </div>
+            <div class="row g-4 courses-grid">
+                <!-- Math Private Lesson -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-card h-100">
+                        <div class="position-relative">
+                            <img src="1.png" class="w-100" alt="رياضيات خصوصي">
+                        </div>
+                        <div class="course-info">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div class="course-category text-muted small">
+                                    <i class="fas fa-tag me-1"></i> علوم الطبيعية
+                                </div>
+                                <div class="course-level">
+                                    <span class="badge-level bg-secondary">الرابعة المتوسط</span>
+                                </div>
+                            </div>
+                            <h3 class="course-title">دروس خصوصية في العلوم الطبيعية</h3>
+                            <p class="course-instructor">
+                                <i class="fas fa-chalkboard-teacher me-1"></i> لزهر فحومة
+                            </p>
+                            <p class="course-description">دروس خصوصية في العلوم الطبيعية لطلاب المتوسط مع مدرس متخصص.</p>
+
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <a href="https://forms.gle/mmVNBviqLByq2sQD6" class="enroll-btn" target="_blank">
+                                    احجز الآن <i class="fas fa-arrow-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-card h-100">
+                        <div class="position-relative">
+                            <img src="2.png" class="w-100" alt="رياضيات خصوصي">
+                        </div>
+                        <div class="course-info">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div class="course-category text-muted small">
+                                    <i class="fas fa-tag me-1"></i> علوم فيزيائية
+                                </div>
+                                <div class="course-level">
+                                    <span class="badge-level bg-secondary">الرابعة المتوسط</span>
+                                </div>
+                            </div>
+                            <h3 class="course-title">دروس خصوصية في علوم الفيزيائية</h3>
+                            <p class="course-instructor">
+                                <i class="fas fa-chalkboard-teacher me-1"></i> مرغني مبروك
+                            </p>
+                            <p class="course-description">دروس خصوصية في العلوم الفيزيائية لطلاب نهاية تعليم المتوسط مع مدرس متخصص.</p>
+
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <a href="https://forms.gle/PWRMJ7GDFCH2ykBt7" class="enroll-btn" target="_blank">
+                                    احجز الآن <i class="fas fa-arrow-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-card h-100">
+                        <div class="position-relative">
+                            <img src="3.png" class="w-100" alt="رياضيات خصوصي">
+                        </div>
+                        <div class="course-info">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div class="course-category text-muted small">
+                                    <i class="fas fa-tag me-1"></i> الرياضيات
+                                </div>
+                                <div class="course-level">
+                                    <span class="badge-level bg-secondary">الرابعة المتوسط</span>
+                                </div>
+                            </div>
+                            <h3 class="course-title">دروس خصوصية في الرياضيات</h3>
+                            <p class="course-instructor">
+                                <i class="fas fa-chalkboard-teacher me-1"></i> لغدامسي طـــه
+                            </p>
+                            <p class="course-description">دروس خصوصية في الرياضيات  لطلاب نهاية تعليم المتوسط مع مدرس متخصص.</p>
+
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <a href="https://forms.gle/1SnnokgqVPVXY9rG6" class="enroll-btn" target="_blank">
+                                    احجز الآن <i class="fas fa-arrow-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-card h-100">
+                        <div class="position-relative">
+                            <img src="4.png" class="w-100" alt="رياضيات خصوصي">
+                        </div>
+                        <div class="course-info">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div class="course-category text-muted small">
+                                    <i class="fas fa-tag me-1"></i> الرياضيات
+                                </div>
+                                <div class="course-level">
+                                    <span class="badge-level bg-secondary">أولى ثانوي</span>
+                                </div>
+                            </div>
+                            <h3 class="course-title">دروس خصوصية في  الرياضيات</h3>
+                            <p class="course-instructor">
+                                <i class="fas fa-chalkboard-teacher me-1"></i> لغدامسي طـــه
+                            </p>
+                            <p class="course-description">دروس خصوصية في الرياضيات  لطلاب اولى ثانوي مع مدرس متخصص.</p>
+
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <a href="https://forms.gle/DERSJTstyeBt63cs6" class="enroll-btn" target="_blank">
+                                    احجز الآن <i class="fas fa-arrow-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-card h-100">
+                        <div class="position-relative">
+                            <img src="5.png" class="w-100" alt="رياضيات خصوصي">
+                        </div>
+                        <div class="course-info">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div class="course-category text-muted small">
+                                    <i class="fas fa-tag me-1"></i> الرياضيات
+                                </div>
+                                <div class="course-level">
+                                    <span class="badge-level bg-secondary">الباكلوريا</span>
+                                </div>
+                            </div>
+                            <h3 class="course-title">دروس خصوصية في الرياضيات</h3>
+                            <p class="course-instructor">
+                                <i class="fas fa-chalkboard-teacher me-1"></i> العربي بالعبيدي
+                            </p>
+                            <p class="course-description">دروس خصوصية في الرياضيات لطلاب نهاية تعليم الثانوي مع مدرس متخصص.</p>
+
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <a href="https://forms.gle/X5g2HjJ2iS4HYPxK9" class="enroll-btn" target="_blank">
+                                    احجز الآن <i class="fas fa-arrow-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-card h-100">
+                        <div class="position-relative">
+                            <img src="6.png" class="w-100" alt="رياضيات خصوصي">
+                        </div>
+                        <div class="course-info">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div class="course-category text-muted small">
+                                    <i class="fas fa-tag me-1"></i> علوم طبيعية و حياة
+                                </div>
+                                <div class="course-level">
+                                    <span class="badge-level bg-secondary">الباكلوريا</span>
+                                </div>
+                            </div>
+                            <h3 class="course-title">دروس خصوصية في علوم طبيعية و حياة</h3>
+                            <p class="course-instructor">
+                                <i class="fas fa-chalkboard-teacher me-1"></i> بليلة حذيفــــة
+                            </p>
+                            <p class="course-description">دروس خصوصية في العلوم الطبيعية و الحياة لطلاب نهاية تعليم الثانوي مع مدرس متخصص.</p>
+
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <a href="https://forms.gle/co5SutW61QJpF2CG7" class="enroll-btn" target="_blank">
+                                    احجز الآن <i class="fas fa-arrow-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="course-card h-100">
+                        <div class="position-relative">
+                            <img src="7.png" class="w-100" alt="رياضيات خصوصي">
+                        </div>
+                        <div class="course-info">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div class="course-category text-muted small">
+                                    <i class="fas fa-tag me-1"></i> علوم فيزيائية
+                                </div>
+                                <div class="course-level">
+                                    <span class="badge-level bg-secondary">الباكلوريا</span>
+                                </div>
+                            </div>
+                            <h3 class="course-title">دروس خصوصية في علوم الفيزيائية</h3>
+                            <p class="course-instructor">
+                                <i class="fas fa-chalkboard-teacher me-1"></i> علـــي نزلي
+                            </p>
+                            <p class="course-description">دروس خصوصية في العلوم الفيزيائية لطلاب الباكلوريا مع مدرس متخصص.</p>
+
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <a href="https://forms.gle/HvvwYYGv6gZ5PrWRA" class="enroll-btn" target="_blank">
+                                    احجز الآن <i class="fas fa-arrow-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+    <!-- Enhanced Footer -->
+    <footer class="py-5 mt-5 position-relative overflow-hidden" style="background: linear-gradient(135deg, #2d1a0b 0%, #1a0f08 100%); color: #fff8f0;">
+      <!-- Background Pattern -->
+      <div class="footer-bg-pattern" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.05; background-image: radial-gradient(circle at 25% 25%, #a67c52 2px, transparent 2px), radial-gradient(circle at 75% 75%, #5c3b23 2px, transparent 2px); background-size: 50px 50px;"></div>
+
+      <div class="container position-relative">
+        <div class="row g-4">
+          <!-- Brand Section -->
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-brand mb-4">
+              <div class="d-flex align-items-center mb-3">
+                <div class="footer-brand-icon me-3" style="width: 60px; height: 60px; background: linear-gradient(135deg, #5c3b23, #a67c52); border-radius: 15px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(166, 124, 82, 0.3);">
+                  <i class="fas fa-graduation-cap text-white fs-3"></i>
+                </div>
+                <div>
+                  <h5 class="mb-0 fw-bold" style="color: #fff8f0; font-size: 1.5rem;">مدرسة النور</h5>
+                  <p class="mb-0" style="color: #a67c52; font-weight: 600; font-size: 1.1rem;">التعليمية</p>
+                </div>
+              </div>
+              <p class="mb-3" style="color: #e2cdb0; line-height: 1.6; font-size: 0.95rem;">
+                نقدم تعليمًا متميزًا ودروس خصوصية متخصصة لطلاب جميع المراحل التعليمية مع أفضل المدرسين والمناهج.
+              </p>
+              <div class="social-links d-flex gap-3">
+                <a href="https://www.facebook.com/profile.php?id=61555379044024" class="social-link" style="width: 45px; height: 45px; background: rgba(166, 124, 82, 0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #a67c52; transition: all 0.3s ease; text-decoration: none;">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-lg-2 col-md-6">
+            <h6 class="fw-bold mb-3" style="color: #fff8f0; font-size: 1.1rem; position: relative;">
+              <span style="background: linear-gradient(90deg, #5c3b23, #a67c52); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">روابط سريعة</span>
+              <div style="width: 30px; height: 2px; background: linear-gradient(90deg, #5c3b23, #a67c52); margin-top: 5px;"></div>
+            </h6>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#home" class="footer-link" style="color: #e2cdb0; text-decoration: none; transition: all 0.3s ease; display: inline-block;">
+                  <i class="fas fa-chevron-left me-2" style="font-size: 0.8rem;"></i>الرئيسية
+                </a>
+              </li>
+              <li class="mb-2">
+                <a href="#courses" class="footer-link" style="color: #e2cdb0; text-decoration: none; transition: all 0.3s ease; display: inline-block;">
+                  <i class="fas fa-chevron-left me-2" style="font-size: 0.8rem;"></i>الدورات
+                </a>
+              </li>
+              <li class="mb-2">
+                <a href="#about" class="footer-link" style="color: #e2cdb0; text-decoration: none; transition: all 0.3s ease; display: inline-block;">
+                  <i class="fas fa-chevron-left me-2" style="font-size: 0.8rem;"></i>من نحن
+                </a>
+              </li>
+              <li class="mb-2">
+                <a href="#contact" class="footer-link" style="color: #e2cdb0; text-decoration: none; transition: all 0.3s ease; display: inline-block;">
+                  <i class="fas fa-chevron-left me-2" style="font-size: 0.8rem;"></i>اتصل بنا
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="col-lg-3 col-md-6">
+            <h6 class="fw-bold mb-3" style="color: #fff8f0; font-size: 1.1rem; position: relative;">
+              <span style="background: linear-gradient(90deg, #5c3b23, #a67c52); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">معلومات الاتصال</span>
+              <div style="width: 30px; height: 2px; background: linear-gradient(90deg, #5c3b23, #a67c52); margin-top: 5px;"></div>
+            </h6>
+            <div class="contact-info">
+              <div class="d-flex align-items-start mb-3">
+                <div class="contact-icon me-3" style="width: 40px; height: 40px; background: rgba(166, 124, 82, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #a67c52;">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <p class="mb-0" style="color: #e2cdb0; font-size: 0.9rem; line-height: 1.4;">
+                    كوينين، مقابل مسجد أبي الصديق
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start">
+                <div class="contact-icon me-3" style="width: 40px; height: 40px; background: rgba(166, 124, 82, 0.2); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #a67c52;">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <a href="mailto:samydzyt2020sr@gmail.com" style="color: #e2cdb0; text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">
+                    samydzyt2020sr@gmail.com
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+         
+
+        <!-- Bottom Footer -->
+        <hr style="border-color: rgba(166, 124, 82, 0.2); margin: 2rem 0;">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p class="mb-0" style="color: #e2cdb0; font-size: 0.9rem;">
+              © 2025 مدرسة النور التعليمية. جميع الحقوق محفوظة.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <p class="mb-0" style="color: #e2cdb0; font-size: 0.9rem;">
+              تم التطوير بـ <i class="fas fa-heart" style="color: #a67c52;"></i> بواسطة ربيحة سامي
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // Course filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const courseSections = document.querySelectorAll('.category-section');
+
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const selectedCategory = this.getAttribute('data-category');
+
+                    courseSections.forEach(section => {
+                        const sectionCategory = section.getAttribute('data-category');
+
+                        if (selectedCategory === 'all' || sectionCategory === selectedCategory) {
+                            section.style.display = 'block';
+                            // Re-initialize AOS for newly visible elements
+                            AOS.refresh();
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
